@@ -4,13 +4,14 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Hondi Order Page</title>
+    <link href="StyleSheet1.css" rel="stylesheet" />
 </head>
 <body>
     <div class="container">
         <form id="orderForm" runat="server">
 
-            <div class="container">
+            <div class="container-child">
                   <h3>Car Informations</h3>
 
                 <table>
@@ -103,49 +104,51 @@
                             <asp:TextBox ID="TxtPhone" runat="server"></asp:TextBox>
                         </td>
                     </tr>
-                     <tr>
-                        <td>Car Price</td>
+                </table>
+                  <asp:Button ID="Button2" runat="server" Text="Submit" OnClick="Button2_Click" />
+                <asp:Button ID="Button1" runat="server" Text="Conclude" OnClick="Button1_Click" />
+            </div> 
+     </form>
+        
+        <div class="container-child">
+            <div class="container-child">
+                <h3>Price Resume</h3>
+            <table>
+                <tr>
+                        <td><asp:Label ID="Label1" runat="server" Text="Car Price" Visible="false"></asp:Label></td>
                         <td> <asp:Label ID="lblPrice" runat="server" Text=""></asp:Label> </td>
                     </tr>
                       <tr>
-                        <td>Interior Color</td>
+                         <td><asp:Label ID="Label2" runat="server" Text="Interior Color" Visible="false"></asp:Label></td>
                         <td> <asp:Label ID="lblInteriorColor" runat="server" Text=""></asp:Label> </td>
                     </tr>
                       <tr>
-                        <td>Accessories</td>
+                        <td><asp:Label ID="Label3" runat="server" Text="Accessories" Visible="false"></asp:Label></td>
                         <td> <asp:Label ID="lblAccessories" runat="server" Text=""></asp:Label> </td>
                     </tr>
                       <tr>
-                        <td>Warranty</td>
+                         <td><asp:Label ID="Label4" runat="server" Text="Warranty" Visible="false"></asp:Label></td>
                         <td> <asp:Label ID="lblWarranty" runat="server" Text=""></asp:Label> </td>
                     </tr>
                     <tr>
-                        <td> Total without Taxes</td>
+                         <td><asp:Label ID="Label5" runat="server" Text="Total Without Taxes" Visible="false"></asp:Label></td>
                         <td>
                               <asp:Label ID="lblSubTotal" runat="server" Text=""></asp:Label> 
                         </td>
                     </tr>
                     <tr>
-                     <td> Total with Taxes</td>
+                      <td><asp:Label ID="Label6" runat="server" Text="Total Without Taxes" Visible="false"></asp:Label></td>
                         <td>
                               <asp:Label ID="lblTotal" runat="server" Text=""></asp:Label> 
                         </td>
                     </tr>
-
-
-                </table>
-                  <asp:Button ID="Button2" runat="server" Text="Submit" OnClick="Button2_Click" />
-                <asp:Button ID="Button1" runat="server" Text="Conclude" OnClick="Button1_Click" />
-            </div>   
-        </form>
-        
-
-      <div>
+            </table>
+        </div>
           <h3>Final Information</h3>
           <asp:Label ID="FinalInfo1" runat="server" Text=""></asp:Label><br />
           <asp:Label ID="FinalInfo2" runat="server" Text=""></asp:Label><br />
           <asp:Label ID="FinalInfo3" runat="server" Text=""></asp:Label>
       </div>
-    </div>
+    </div> 
 </body>
 </html>

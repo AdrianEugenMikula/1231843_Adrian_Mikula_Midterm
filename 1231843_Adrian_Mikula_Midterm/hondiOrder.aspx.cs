@@ -22,7 +22,7 @@ namespace _1231843_Adrian_Mikula_Midterm
 
         string PurchasedAccessories = "";
         string selectedAccessories = " ";
-        double AccessoriesPrice = 0;
+        int TotalAccessoryPrice = 0;
         string selectedWarranty = "";
         string CarModel = "";
         string CarInteriorColor = "";
@@ -37,7 +37,10 @@ namespace _1231843_Adrian_Mikula_Midterm
         {
             ifChecked();
 
+
         }
+
+     
 
         protected void ifChecked()
         {
@@ -79,6 +82,8 @@ namespace _1231843_Adrian_Mikula_Midterm
                     }
 
                 }
+                
+
                 foreach (ListItem lst in WarrantyList.Items)
                 {
                     if (WarrantyList.SelectedIndex == 0)
@@ -108,6 +113,8 @@ namespace _1231843_Adrian_Mikula_Midterm
 
                 }
 
+               
+
 
             }
         }
@@ -134,13 +141,12 @@ namespace _1231843_Adrian_Mikula_Midterm
                 lblInteriorColor.Text = Regex.Match(IntColorListBox.SelectedValue, @"\d+").Value;
                 //lblAccessories.Text = Regex.Match(AccessoriesList.SelectedValue, @"\d+").Value;
 
-                
+
+              
 
 
-
-
-                    //calculate the price
-                    if (CarModelDropDownList.SelectedIndex == 0)
+                //calculate the price
+                if (CarModelDropDownList.SelectedIndex == 0)
                     {
                         lblPrice.Text = "$25000";
                         PriceCarModel = 25000;
@@ -211,13 +217,16 @@ namespace _1231843_Adrian_Mikula_Midterm
                     }
 
 
-
+                    //get accessories
                     foreach (ListItem lst in AccessoriesList.Items)
                     {
                         if (lst.Selected == true)
                         {
                             selectedAccessories = Regex.Match(lst.Text, @"\d+").Value;
-                            lblAccessories.Text += selectedAccessories + "<br />";
+                           // lblAccessories.Text += selectedAccessories + "<br />";
+
+                           TotalAccessoryPrice += Convert.ToInt32(selectedAccessories);
+                           lblAccessories.Text = TotalAccessoryPrice.ToString();
 
 
                         }
@@ -243,9 +252,22 @@ namespace _1231843_Adrian_Mikula_Midterm
                     Total = SubTotal + GST + QST;
 
                     lblTotal.Text = Total.ToString();
+                Label1.Visible = true;
+                Label2.Visible = true;
+                Label3.Visible = true;
+                Label4.Visible = true;
+                Label5.Visible = true;
+                Label6.Visible = true;
 
-                    
-                }
+                lblPrice.Visible = true;
+                lblInteriorColor.Visible = true;
+                lblAccessories.Visible = true;
+                lblWarranty.Visible = true;
+                lblSubTotal.Visible = true;
+                lblTotal.Visible = true;
+
+
+            }
             }
         }
     }
